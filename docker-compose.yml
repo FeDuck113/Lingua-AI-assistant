@@ -1,0 +1,34 @@
+services:
+  core:
+    #network_mode: "host"
+    platform: linux/amd64
+    container_name: lingua-ai-assistant
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    build:
+      context: ./core
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+      - GIGACHAT_API_KEY= *api key*
+      - DATABASE_URL= *url*
+      - STT_URL= *speech-to-text url*
+      - TTS_URL= *text-to-speech url*
+
+  tg_bot:
+    network_mode: "host"
+    platform: linux/amd64
+    build:
+      context: ./tg_bot
+    container_name: tg_bot
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - API_HOST=host.docker.internal
+    command: python -m tg_bot.cli
+networks:
+  default: {}
+

@@ -1,0 +1,45 @@
+{
+	"name": "ts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "bun --watch src/app.ts",
+		"build": "bun build.ts",
+		"start": "NODE_ENV=production bun out/app.js",
+		"lint": "bun x @biomejs/biome check src",
+		"lint:fix": "bun lint --write",
+		"generate": "bun x drizzle-kit generate",
+		"push": "bun x drizzle-kit push",
+		"migrate": "bun x drizzle-kit migrate",
+		"studio": "bun x drizzle-kit studio"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@elysiajs/swagger": "^1.2.2",
+		"@langchain/core": "^0.3.51",
+		"@paralleldrive/cuid2": "^2.2.2",
+		"dotenv": "^16.5.0",
+		"drizzle-orm": "^0.43.1",
+		"drizzle-typebox": "^0.3.2",
+		"elysia": "^1.2.25",
+		"langchain": "^0.3.24",
+		"langchain-gigachat": "^0.0.11",
+		"logestic": "^1.2.4",
+		"node-postgres": "^0.6.2",
+		"pg": "^8.15.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/bun": "^1.2.12",
+		"@types/node": "^22.15.3",
+		"@types/pg": "^8.12.0",
+		"drizzle-kit": "^0.31.1"
+	},
+	"overrides": {
+		"@sinclair/typebox": "0.34.33"
+	}
+}
