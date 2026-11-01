@@ -10,9 +10,7 @@ const httpsAgent = new Agent({
 	rejectUnauthorized: false, // Отключение проверки сертификатов НУЦ Минцифры
 });
 
-// const key = process.env.GIGACHAT_API_KEY;
-const key =
-	"ZjU5MDIwN2QtMzY5NC00ZmVmLTg0MzktNDZlNjY4Y2MxOTc4OmU3ZGIwOTJlLWYxOTMtNGI5NS04YWM0LWE4ZGEzOGI1ZGIzNA==";
+const key = process.env.GIGACHAT_API_KEY;
 if (!key) {
 	throw new Error(`No gigachat key provided! ${key}`);
 }
